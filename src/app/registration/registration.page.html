@@ -1,0 +1,188 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img alt="le logo de LEA" src="../../assets/Logo.svg" />
+  </div>
+  <swiper-container #swiper [allowTouchMove]="false" class="content">
+    <swiper-slide>
+      <h2 class="contentTitle">CRÉATION DE MON ESPACE PERSONNEL</h2>
+      <form [formGroup]="parentInformation" (ngSubmit)="goNext()">
+        <ion-list class="registrationForm">
+          <ion-item>
+            <ion-input formControlName="name" label="Nom du parent :" labelPlacement="stacked"
+              placeholder="Dupond"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('name')?.hasError('required') && parentInformation.get('name')?.touched"
+              color="danger">
+              Nom est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('name')?.hasError('minlength') && parentInformation.get('name')?.touched"
+              color="danger">
+              Le nom doit avoir au moins 2 caractères
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="surname" label="Prénom du parent :" labelPlacement="stacked"
+              placeholder="Marie"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('surname')?.hasError('required') && parentInformation.get('surname')?.touched"
+              color="danger">
+              Prénom est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('surname')?.hasError('minlength') && parentInformation.get('surname')?.touched"
+              color="danger">
+              Le prénom doit avoir au moins 2 caractères
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="streetNumber" label="Numéro de rue :" labelPlacement="stacked"
+              placeholder="233"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('streetNumber')?.hasError('required') && parentInformation.get('streetNumber')?.touched"
+              color="danger">
+              Numéro de rue est requis
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="streetName" label="Nom de la rue :" labelPlacement="stacked"
+              placeholder="Boulevard Aristide Briand"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('streetName')?.hasError('required') && parentInformation.get('streetName')?.touched"
+              color="danger">
+              Nom de la rue est requis
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="otherAddress" label="Complément d'adresse :" labelPlacement="stacked"
+              placeholder="Batiment A"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="postalCode" label="Code postal :" labelPlacement="stacked"
+              placeholder="88888"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('postalCode')?.hasError('required') && parentInformation.get('postalCode')?.touched"
+              color="danger">
+              Code postal est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('postalCode')?.hasError('pattern') && parentInformation.get('postalCode')?.touched"
+              color="danger">
+              Code postal invalide
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="city" label="Ville :" labelPlacement="stacked"
+              placeholder="La ville où habite l’enfant"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('city')?.hasError('required') && parentInformation.get('city')?.touched"
+              color="danger">
+              Ville est requis
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="country" label="Pays :" labelPlacement="stacked"
+              placeholder="France"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('country')?.hasError('required') && parentInformation.get('country')?.touched"
+              color="danger">
+              Pays est requis
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="phoneNumber" label="Téléphone :" labelPlacement="stacked"
+              placeholder="12345678"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('phoneNumber')?.hasError('required') && parentInformation.get('phoneNumber')?.touched"
+              color="danger">
+              Téléphone est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('phoneNumber')?.hasError('pattern') && parentInformation.get('phoneNumber')?.touched"
+              color="danger">
+              Téléphone invalide
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="email" type="email" label="Mail :" labelPlacement="stacked"
+              placeholder="Email@domain.fr"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('email')?.hasError('required') && parentInformation.get('email')?.touched"
+              color="danger">
+              Email est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('email')?.hasError('email') && parentInformation.get('email')?.touched"
+              color="danger">
+              Email invalide
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('email')?.hasError('uniqueEmail') && parentInformation.get('email')?.touched"
+              color="danger">
+              Votre email est déjà utilisé
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('email')?.hasError('uniqueCheckError') && parentInformation.get('email')?.touched"
+              color="danger">
+              Nous n'arrivons pas à vérifier si votre email est déjà utilisé
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="password" type="password" label="Mot de passe :"
+              labelPlacement="stacked"></ion-input>
+            <ion-note
+              *ngIf="parentInformation.get('password')?.hasError('required') && parentInformation.get('password')?.touched"
+              color="danger">
+              Mot de passe est requis
+            </ion-note>
+            <ion-note
+              *ngIf="parentInformation.get('password')?.hasError('minlength') && parentInformation.get('password')?.touched"
+              color="danger">
+              Le mot de passe doit avoir au moins 8 caractères
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-select formControlName="activity" cancelText="Annuler" doneText="Ok" aria-label="Type de Handicap"
+              placeholder="Choix unique" label="Activité du parent *" labelPlacement="stacked">
+              <ion-select-option *ngFor="let activity of activities"
+                [value]="activity">{{activitiesLabel[activity]}}</ion-select-option>
+            </ion-select>
+            <ion-note
+              *ngIf="parentInformation.get('activity')?.hasError('required') && parentInformation.get('activity')?.touched"
+              color="danger">
+              Activité est requise
+            </ion-note>
+          </ion-item>
+        </ion-list>
+        <div class="validerBtn">
+          <ion-button (click)="goNext()" expand="block" class="customButton"
+            [disabled]="!parentInformation.valid">Suivant</ion-button>
+        </div>
+      </form>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="successContent">
+        <h2 class="contentTitle">Plus qu'une dernière étape</h2>
+        <p>Validation de vos informations en appuyant "Confirmer"</p>
+        <div class="validerBtn">
+          <ion-button (click)="finishRegistration()" expand="block"
+            class="redirectToMySpaceButton">Confirmer</ion-button>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="successContent">
+        <h2 class="contentTitle">VOTRE COMPTE A ETE CREER</h2>
+        <img alt="Icone de succès" src="../../assets/success.svg" />
+        <p>Bienvenue sur l’application Gerden ! Vous pourrez accéder à votre espace, mais également aux différents
+          outils que fourni l’application.</p>
+        <div class="validerBtn">
+          <ion-button (click)="goToUserSpace()" expand="block" class="redirectToMySpaceButton">Aller sur mon
+            espace</ion-button>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <ion-toast [isOpen]="isErrorDisplayed" message="{{registrationError}}" [duration]="3000"
+    (didDismiss)="displayError(false)" position="top"></ion-toast>
+</ion-content>

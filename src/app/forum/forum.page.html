@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Forum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="custom-header">
+    <img src="" alt="Gerden Logo" class="logo">
+  </div>
+  <div class="waves-effect">
+    <svg transform="rotate(180)" width="100%" height="100" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none">
+      <path
+        d="M0,50 Q25,100 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 V100 H0 Z"
+        fill="white" />
+    </svg>
+  </div>
+  <div class="wave-container">
+    <svg viewBox="0 0 1440 320">
+      <path fill="#4CAF50" fill-opacity="1"
+        d="M0,128L80,144C160,160,320,192,480,197.3C640,203,800,181,960,186.7C1120,192,1280,224,1360,240L1440,256L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+      </path>
+    </svg>
+  </div>
+  <h2 class="accueilTitreH1">Forum</h2>
+
+  <ion-grid *ngIf="!isLoading">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" color="primary" (click)="navigateToNewPost()">
+          Poster un nouveau sujet
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Si aucun sujet n'est posté, afficher un message -->
+    <ion-row *ngIf="forumPosts.length === 0">
+      <ion-col size="12" class="no-posts-text">
+        Aucun sujet pour le moment
+      </ion-col>
+    </ion-row>
+
+    <!-- Tri des posts -->
+    <ion-row *ngIf="forumPosts.length > 0">
+      <ion-col size="12">
+        <ion-select placeholder="Trier par" [(ngModel)]="sortBy" (ionChange)="sortPosts()">
+          <ion-select-option value="date">Date</ion-select-option>
+          <ion-select-option value="popularity">Popularité</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <!-- Affichage des forums sous forme de cartes -->
+    <ion-row *ngFor="let post of forumPosts">
+      <ion-col size="12">
+        <ion-card (click)="openPost(post)">
+          <img [src]="'assets/images/forum-default.jpg'" alt="Post Image" />
+          <ion-card-header>
+            <ion-card-title>{{ post.type }}</ion-card-title>
+            <ion-card-subtitle>{{ post.dateCreation | date }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ post.listeDeCommentaires.length }} commentaires</p>
+            <ion-badge color="primary">{{ post.utilisateurs.length }} utilisateur(s)</ion-badge>
+          </ion-card-content>
+          <ion-footer>
+            <ion-button fill="clear" (click)="likePost(post, $event)">
+              <ion-icon name="heart" [color]="post['liked'] ? 'danger' : 'medium'"></ion-icon>
+              {{ post['likes'] || 0 }}
+            </ion-button>
+            <ion-button fill="clear" color="tertiary">Consulter</ion-button>
+          </ion-footer>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Affichage du spinner de chargement -->
+  <ion-spinner *ngIf="isLoading" class="loading-spinner"></ion-spinner>
+</ion-content>

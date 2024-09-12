@@ -1,0 +1,15 @@
+<ion-header>
+  <img id="logo-header" alt="le logo de LEA" src="https://www.asso-lea.org/template/images/logo.png" />
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div id="profile">
+    <div id="profile-image"></div>
+    <div>
+      <h3>{{username}}</h3>
+      <ion-button target="_blank" expand="block">Editer mon profile
+        <ion-icon slot="end" name="pencil-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+ion-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #4CAF50;
+  font-size: 40px;
+}
+  
+.custom-header {
+  display: flex;
+  justify-content: center;
+  background-color: white !important;
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+.wave-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+ion-button {
+  --background: #4CAF50;
+  --border-radius: 15px;
+  --padding: 10px;
+  font-size: 20px;
+}

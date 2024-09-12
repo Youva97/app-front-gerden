@@ -1,0 +1,64 @@
+ion-content {
+    --background: #F5F5DC;
+}
+
+ion-button {
+    --background:#008CBA;
+    --background-activated: #14647e;
+    --padding-start: 2rem;
+    --padding-end: 2rem;
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+}
+
+ion-item {
+    --padding-start: 0;
+    --border-color: #008CBA;
+    --border-width: 0 0 0.08rem;
+}
+
+ion-toast {
+    --background: #CC0000;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 2rem;
+    background-color: white;
+}
+
+.content {
+    padding: 2rem 2rem 2rem;
+}
+
+.login-form-input {
+    background-color: #F5F5DC;
+}
+
+.input {
+    margin: 0.5rem 0 1.5rem;
+}
+
+.signup {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.signup h5 {
+    margin-left: 0.5rem;
+}
+
+.login-buttons {
+    margin-top: 0.7rem;
+}
+
+.custom-button {
+    text-transform: none;
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div class="logo">
+    <img alt="le logo de GERDEN" src="" />
+  </div>
+  <div class="content">
+    <form [formGroup]="login" (ngSubmit)="onSignIn()">
+      <ion-list class="login-form-input">
+        <span class="input-label">Email</span>
+        <ion-item class="input">
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        <span class="input-label">Mot de passe</span>
+        <ion-item class="input">
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="login-buttons">
+        <ion-button class="custom-button" type="submit" expand="block" (click)="onSignIn()">Je me connecte</ion-button>
+        <ion-label class="forgot-password" (click)="navigateToForgotPassword()">Mot de passe oublié ?</ion-label>
+      </div>
+    </form>
+
+    <div class="signup">
+      <h5>Vous n'avez pas de compte ?</h5>
+      <ion-button expand="block" (click)="onSignUp()" class="custom-button">Je m'inscris</ion-button>
+    </div>
+  </div>
+  <ion-toast [isOpen]="isErrorDisplayed" message="{{loginError}}" [duration]="3000" (didDismiss)="displayError(false)"
+    position="top"></ion-toast>
+</ion-content>

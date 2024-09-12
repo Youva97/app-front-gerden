@@ -1,0 +1,94 @@
+ion-content {
+    --background: #F5F5DC;
+}
+
+ion-item-divider {
+    --background:#DCDCDC;
+}
+
+ion-button {
+    --background:#008CBA;
+    --background-activated: #14647e;
+    --color: white;
+}
+
+ion-fab-button {
+    --background:#008CBA;
+    --background-activated: #14647e;
+    --color: white;
+}
+
+ion-toast {
+    --background: #CC0000;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-bottom: 0.3rem solid #008CBA;
+}
+
+.contentTitle {
+    color: #008CBA;
+}
+
+.content {
+    padding: 1.5rem 1rem;
+    background-color: #F5F5DC;
+}
+
+.registrationForm {
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+.validerBtn {
+    margin-top: 4rem;
+}
+
+.customButton {
+    text-transform: none;
+}
+
+.addChildrenBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.addChildrenPopIn::part(background) {
+    background-color: #008CBA;
+}
+
+.confirmAddChildren {
+    margin: 0.5rem 0.75rem;
+    background-color: white;
+}
+
+.registrationButton {
+    margin-top: 19rem;
+}
+
+.successContent {
+    color: #008CBA;
+    text-align: center;
+}
+
+.redirectToMySpaceButton {
+    margin-top: 9rem;
+}
+
+.childrenItem {
+    display: flex;
+}
+
+.updateIcon {
+    justify-content: flex-end;
+}
+
+.emailConfirmationInput {
+    background-color: #ffff;
+    color: rgba(0,0,0,1);
+}
